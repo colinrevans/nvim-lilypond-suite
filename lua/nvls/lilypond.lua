@@ -37,11 +37,22 @@ function M.lilyPlayer()
   elseif io.open(fn.glob(main_folder .. '/' .. 
       nvls_short .. '.mp3', "r")) then
     require('nvls.lilypond').player(lilyAudioFile, nvls_file_name .. ".mp3")
-
   else
     print("[NVLS] No mp3 file in working directory")
     do return end
   end
+end
+
+function M.lilyEartrainer()
+	local main_folder = nvls_options.lilypond.options.main_folder
+
+	if io.open(fn.glob(main_folder .. '/' .. 
+		nvls_short .. '-song.mp3', "r")) then
+		require('nvls.lilypond').player(lilySongFile, nvls_file_name .. "-song.mp3")
+	else
+		print("[NVLS] No song mp3 file in working directory")
+		do return end
+	end
 end
 
 function M.DefineLilyVars()
@@ -70,6 +81,7 @@ function M.DefineLilyVars()
   nvls_file_name = nvls_short:gsub([[\]], "")
   lilyMidiFile = require('nvls').shellescape(expand(nvls_main_name .. ".midi"))
   lilyAudioFile = require('nvls').shellescape(expand(nvls_main_name .. ".mp3"))
+	lilySongFile = require('nvls').shellescape(expand(nvls_main_name .. "-song.mp3"))
 end
 
 function M.player(file,name)

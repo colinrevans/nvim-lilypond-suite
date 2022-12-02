@@ -26,6 +26,11 @@ lilyCmd('LilyPlayer', function()
   require('nvls.lilypond').lilyPlayer() 
 end, {})
 
+lilyCmd('LilyEartrainer', function()
+	require('nvls.lilypond').DefineLilyVars()
+	require('nvls.lilypond').lilyEartrainer()
+end, {})
+
 lilyCmd('Viewer', function() 
   require('nvls.lilypond').DefineLilyVars()
   local output = nvls_options.lilypond.options.output
