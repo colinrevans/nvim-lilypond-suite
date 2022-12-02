@@ -58,7 +58,8 @@ local default = {
       mpv_flags = {
         "--msg-level=cplayer=no,ffmpeg=no",
         "--loop",
-        "--config-dir=/dev/null"
+        "--config-dir=/dev/null",
+				"--no-focus-on-open"
       }
     },
   },
